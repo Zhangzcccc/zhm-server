@@ -85,6 +85,10 @@ renren-security
 - 账号密码：admin/admin
 <br>
 
+**赞助声明**
+- 本项目由VTEXS的[开源项目免费vps计划]提供算力支持。
+- 感谢VTEXS社区的大力支持
+
 ![输入图片说明](agile-admin/src/main/resources/public/1.png)
 
 <br>

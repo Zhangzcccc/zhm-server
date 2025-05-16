@@ -25,6 +25,10 @@ Software architecture description
 3.  Commit your code
 4.  Create Pull Request
 
+#### Sponsorship Statement
+1.  This project is supported by VTEXS through their [Free VPS for Open Source Projects] initiative.
+2.  We are grateful for the strong support from the VTEXS community.
+
 
 #### Gitee Feature
 
