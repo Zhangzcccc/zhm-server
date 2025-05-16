@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ic.agile.modules.dream.dao.DreamImagesDao">
+
+    <resultMap type="com.ic.agile.modules.dream.entity.DreamImagesEntity" id="dreamImagesMap">
+        <result property="id" column="id"/>
+        <result property="dreamId" column="dream_id"/>
+        <result property="imageUrl" column="image_url"/>
+        <result property="sortOrder" column="sort_order"/>
+        <result property="createdAt" column="created_at"/>
+    </resultMap>
+
+
+</mapper>

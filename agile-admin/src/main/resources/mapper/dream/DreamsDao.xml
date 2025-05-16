@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ic.agile.modules.dream.dao.DreamsDao">
+
+    <resultMap type="com.ic.agile.modules.dream.entity.DreamsEntity" id="dreamsMap">
+        <result property="id" column="id"/>
+        <result property="userId" column="user_id"/>
+        <result property="originalDream" column="original_dream"/>
+        <result property="generatedStory" column="generated_story"/>
+        <result property="dreamMeaning" column="dream_meaning"/>
+        <result property="createdAt" column="created_at"/>
+        <result property="updatedAt" column="updated_at"/>
+        <result property="isDeleted" column="is_deleted"/>
+    </resultMap>
+
+
+</mapper>

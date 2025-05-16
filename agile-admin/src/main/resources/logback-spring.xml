@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="6000">
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符-->
+            <pattern>%date{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger:%L - %msg%n</pattern>
+            <charset>utf8</charset>
+        </encoder>
+    </appender>
+
+    <appender name="rollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/agile/today.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!-- 每天一归档 -->
+            <fileNamePattern>logs/agile/%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <!-- 单个日志文件最多 500MB, 20天的日志周期，最大不能超过10GB -->
+            <maxFileSize>500MB</maxFileSize>
+            <maxHistory>20</maxHistory>
+            <totalSizeCap>10GB</totalSizeCap>
+        </rollingPolicy>
+
+        <encoder>
+            <pattern>%date{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger:%L - %msg%n</pattern>
+            <charset>utf8</charset>
+        </encoder>
+    </appender>
+
+    <logger name="org.springframework" level="error" additivity="false">
+        <appender-ref ref="console"/>
+        <appender-ref ref="rollingFile"/>
+    </logger>
+    <logger name="_org.springframework" level="error" additivity="false">
+        <appender-ref ref="console"/>
+        <appender-ref ref="rollingFile"/>
+    </logger>
+    <logger name="org.apache.http" level="error" additivity="false">
+        <appender-ref ref="console"/>
+        <appender-ref ref="rollingFile"/>
+    </logger>
+    <logger name="io.lettuce.core.protocol" level="error" additivity="false">
+        <appender-ref ref="console"/>
+        <appender-ref ref="rollingFile"/>
+    </logger>
+    <logger name="org.mybatis" level="error" additivity="false">
+        <appender-ref ref="console"/>
+        <appender-ref ref="rollingFile"/>
+    </logger>
+    <logger name="tk.mybatis" level="error" additivity="false">
+        <appender-ref ref="console"/>
+        <appender-ref ref="rollingFile"/>
+    </logger>
+    <logger name="springfox.documentation" level="error" additivity="false">
+        <appender-ref ref="console"/>
+        <appender-ref ref="rollingFile"/>
+    </logger>
+    <logger name="com.netflix" level="error" additivity="false">
+        <appender-ref ref="console"/>
+        <appender-ref ref="rollingFile"/>
+    </logger>
+    <logger name="io.netty" level="error" additivity="false">
+        <appender-ref ref="console"/>
+        <appender-ref ref="rollingFile"/>
+    </logger>
+    <logger name="org.apache.ibatis" level="error" additivity="false">
+        <appender-ref ref="console"/>
+        <appender-ref ref="rollingFile"/>
+    </logger>
+    <logger name="org.hibernate.validator" level="error" additivity="false">
+        <appender-ref ref="console"/>
+        <appender-ref ref="rollingFile"/>
+    </logger>
+    <logger name="com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean" level="error" additivity="false">
+        <appender-ref ref="console"/>
+        <appender-ref ref="rollingFile"/>
+    </logger>
+    <logger name="org.apache.shiro" level="error" additivity="false">
+        <appender-ref ref="console"/>
+        <appender-ref ref="rollingFile"/>
+    </logger>
+
+    <logger name="jdbc.sqltiming" level="ON"/>
+    <logger name="jdbc.sqlonly" level="ON"/>
+    <logger name="jdbc.audit" level="ON"/>
+    <logger name="jdbc.resultset" level="OFF"/>
+    <logger name="jdbc.connection" level="OFF"/>
+    <!-- 开发、测试环境 -->
+    <springProfile name="dev,test">
+        <root level="debug">
+            <appender-ref ref="console"/>
+            <appender-ref ref="rollingFile"/>
+        </root>
+    </springProfile>
+
+    <!-- 生产环境 -->
+    <springProfile name="prod">
+        <root level="info">
+            <appender-ref ref="console"/>
+            <appender-ref ref="rollingFile"/>
+        </root>
+    </springProfile>
+
+</configuration>
